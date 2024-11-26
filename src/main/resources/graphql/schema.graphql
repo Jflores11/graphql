@@ -1,0 +1,31 @@
+input MovieInputCreate {
+    id: ID,
+    title: String!,
+    director: String!,
+    releaseYear: Int!
+}
+
+input MovieInputUpdate {
+    id: ID!,
+    title: String,
+    director: String,
+    releaseYear: Int
+}
+
+type Movie {
+    id: ID!,
+    title: String!,
+    director: String!,
+    releaseYear: Int!
+}
+
+type Query {
+    getAllMovies: [Movie]
+    getMovie(id: ID!): Movie
+}
+
+type Mutation {
+    createMovie(movieDTO:MovieInputCreate): Movie
+    updateMovie(movieDTO:MovieInputUpdate): Movie
+    deleteMovie(id: ID!): Boolean
+}
